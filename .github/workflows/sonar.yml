@@ -27,9 +27,9 @@ jobs:
       - name: Run SonarQube analysis
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+          SONAR_HOST_URL: ${{ secrets.EC2_IP }"
         run: |
           ./mvnw org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
             -Dsonar.projectKey=spring-petclinic \
-            -Dsonar.host.url="$SONAR_HOST_URL" \
+            -Dsonar.host.url="$EC2_IP" \
             -Dsonar.token="$SONAR_TOKEN"
